@@ -15,8 +15,18 @@ function submitData() {
 }
 
 function run() {
-    for(let i=0;i<divs.length;i++) {
-        divs.item(i).classList.remove("found");
+    if(algorithm === "linear") {
+        for(let i=0;i<divs.length;i++) {
+            divs.item(i).classList.remove("found");
+        }
+    }
+    else if(algorithm === "binary") {
+        for(let i=0;i<divs.length;i++) {
+            divs.item(i).classList.remove("found");
+            divs.item(i).classList.remove("i");
+            divs.item(i).classList.remove("j");
+            divs.item(i).classList.remove("m");
+        }
     }
     number = document.getElementById("number").value;
     runAlgorithm(algorithm, array, number,divs);
@@ -40,20 +50,33 @@ async function runAlgorithm(algorithm, data, number, divs) {
             return null;
             break;
         case 'binary':
-            console.log("binary");
-            let  lowIndex = 0;
+            let lowIndex = 0;
+            divs.item(lowIndex).classList.add("i");
             let highIndex = data.length - 1;
+            divs.item(highIndex).classList.add("j");
             while(lowIndex <= highIndex) {
                 let midIndex = Math.floor((lowIndex + highIndex)/2);
-                if(data[midIndex] === number) {
+                divs.item(midIndex).classList.add("m");
+                await delay();
+                if(parseInt(data[midIndex]) == parseInt(number)) {
+                    divs.item(midIndex).classList.remove("m");
+                    await delay();
+                    divs.item(midIndex).classList.add("found");
                     return number;
                 }
-                else if(data[midIndex] < number) {
+                else if(parseInt(data[midIndex]) < parseInt(number)) {
+                    divs.item(lowIndex).classList.remove("i");
+                    await delay();
                     lowIndex = midIndex + 1;
+                    divs.item(lowIndex).classList.add("i");
                 }
                 else {
+                    divs.item(highIndex).classList.remove("j");
+                    await delay();
                     highIndex = midIndex - 1;
+                    divs.item(highIndex).classList.add("j");
                 }
+                divs.item(midIndex).classList.remove("m");
             }
             return null;
             break;

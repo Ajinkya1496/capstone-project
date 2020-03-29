@@ -24,3 +24,19 @@
 .margin-right-50 {
     margin-right: 50px;
 }
+
+/* binary search specific classes */
+.i {
+    background-color: cyan;
+    content: "i";
+}
+
+.m {
+    background-color: darkorange;
+    content: "m";
+}
+
+.j {
+    background-color: darkcyan;
+    content: "j";
+}
