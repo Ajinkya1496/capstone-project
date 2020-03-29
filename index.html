@@ -7,21 +7,21 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
+            <div class="row margin-top-50">
                     <!-- <input id="size" type="text" placeholder="Data set size" name="dataset_size" id="dataset_size" required/> -->
-                    <textarea id="data" placeholder="Enter comma seperated values" required></textarea>
-                    <select name="algorithm" id="algorithm" required>
+                    <textarea id="data" class="margin-right-50" placeholder="Enter comma seperated values" required></textarea>
+                    <select class="margin-right-50" name="algorithm" id="algorithm" required>
                         <option value="">Choose Algorithm</option>
                         <option value="linear">linear</option>
                         <option value="binary">binary</option>
                         <option value="selection">selection</option>
                         <option value="bubble">bubble</option>
                     </select>
-                    <button type="submit" onclick="submitData()">Submit</button>
+                    <button type="submit" class="btn-primary btn-submit" onclick="submitData()">Submit</button>
             </div>
             <div class="row margin-top-50" id="show-data">
                 <input id="number" type="text" placeholder="Enter number to find" required/>
-                <button class="margin-right-50" onclick="run()">Run</button>
+                <button class="margin-right-50 btn-primary" onclick="run()">Run</button>
             </div>
         </div>
         <script type="text/javascript" src="index.js"></script>
