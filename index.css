@@ -40,3 +40,20 @@
     background-color: darkcyan;
     content: "j";
 }
+
+/* selection and bubble sort */
+
+/*hide number input box for sorting algorithms*/
+.hide {
+    display: none;
+}
+
+.fade-in  {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1000ms;
+}

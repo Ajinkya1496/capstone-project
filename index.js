@@ -6,9 +6,15 @@ function submitData() {
     algorithm = document.getElementById("algorithm").value;
 
     array = data.split(",");
-    array.sort(function(a,b) {
-        return a-b;
-    });
+    if(algorithm === "linear" || algorithm === "binary") {
+        array.sort(function(a,b) {
+            return a-b;
+        });
+        document.getElementById("number").classList.remove("hide");
+    }
+    else if(algorithm === "selection" || algorithm === "bubble") {
+        document.getElementById("number").classList.add("hide");
+    }
     // console.log(array)
     divs = generateElements(array);
     // console.log(divs)
@@ -53,7 +59,7 @@ async function runAlgorithm(algorithm, data, number, divs) {
             let lowIndex = 0;
             divs.item(lowIndex).classList.add("i");
             let highIndex = data.length - 1;
-            divs.item(highIndex).classList.add("j");
+            divs.item(highIndex).classList.add("");
             while(lowIndex <= highIndex) {
                 let midIndex = Math.floor((lowIndex + highIndex)/2);
                 divs.item(midIndex).classList.add("m");
@@ -81,10 +87,47 @@ async function runAlgorithm(algorithm, data, number, divs) {
             return null;
             break;
         case 'selection':
-            console.log("selection");
+            let length = data.length;
+            for(let i=0;i<length;i++) {
+                let min = i;
+                for(let j = i+1; j < length; j++) {
+                    if(parseInt(data[min]) > parseInt(data[j]) ) {
+                        min = j;
+                        await delay();
+                        divs.item(min).innerHTML = divs.item(j).innerHTML;
+                    }
+                }
+                if(min !== i) {
+                    let tmp = data[i];
+                    let innerHtmlTemp = divs.item(i).innerHTML;
+                    data[i] = data[min];
+                    await delay();
+                    divs.item(i).innerHTML = divs.item(min).innerHTML;
+                    data[min] = tmp;
+                    await delay();
+                    divs.item(min).innerHTML = innerHtmlTemp;
+                }
+            }
             break;
         case 'bubble':
-            console.log("bubble");
+            let len = data.length;
+            let swapped;
+            do {
+                swapped = false;
+                for (let i = 0; i < len; i++) {
+                    if (parseInt(data[i]) > parseInt(data[i + 1])) {
+                        let tmp = data[i];
+                        let innerHtmlTemp = divs.item(i).innerHTML;
+                        data[i] = data[i + 1];
+                        await delay();
+                        divs.item(i).innerHTML = divs.item(i+1).innerHTML;
+                        data[i + 1] = tmp;
+                        await delay();
+                        divs.item(i+1).innerHTML = innerHtmlTemp;
+                        swapped = true;
+                    }
+                }
+            } while (swapped);
             break;
     }
 }
