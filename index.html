@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                    <!-- <input id="size" type="text" placeholder="Data set size" name="dataset_size" id="dataset_size" required/> -->
+                    <textarea id="data" placeholder="Enter comma seperated values" required></textarea>
+                    <select name="algorithm" id="algorithm" required>
+                        <option value="">Choose Algorithm</option>
+                        <option value="linear">linear</option>
+                        <option value="binary">binary</option>
+                        <option value="selection">selection</option>
+                        <option value="bubble">bubble</option>
+                    </select>
+                    <button type="submit" onclick="submitData()">Submit</button>
+            </div>
+            <div class="row margin-top-50" id="show-data">
+                <input id="number" type="text" placeholder="Enter number to find" required/>
+                <button class="margin-right-50" onclick="run()">Run</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="index.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
