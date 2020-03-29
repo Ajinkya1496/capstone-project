@@ -59,13 +59,15 @@ async function runAlgorithm(algorithm, data, number, divs) {
             let lowIndex = 0;
             divs.item(lowIndex).classList.add("i");
             let highIndex = data.length - 1;
-            divs.item(highIndex).classList.add("");
+            divs.item(highIndex).classList.add("j");
             while(lowIndex <= highIndex) {
                 let midIndex = Math.floor((lowIndex + highIndex)/2);
                 divs.item(midIndex).classList.add("m");
                 await delay();
                 if(parseInt(data[midIndex]) == parseInt(number)) {
                     divs.item(midIndex).classList.remove("m");
+                    divs.item(lowIndex).classList.remove("i");
+                    divs.item(highIndex).classList.remove("j");
                     await delay();
                     divs.item(midIndex).classList.add("found");
                     return number;
