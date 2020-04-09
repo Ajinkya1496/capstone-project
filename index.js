@@ -56,6 +56,7 @@ function submitData(event) {
     }
     else if(algorithm === "selection" || algorithm === "bubble") {
         document.getElementById("number").classList.add("hide");
+        document.getElementById("number").removeAttribute("required");
     }
     // console.log(array)
     divs = generateElements(array);
