@@ -59,7 +59,11 @@
 }
 
 /*button styles*/
-.btn-submit {
-    width: 12%;
+.btn-submit,
+.btn-reset {
     border-radius: 7px;
+}
+
+.btn-reset {
+    margin-left: 10px;
 }

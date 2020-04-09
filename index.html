@@ -8,8 +8,14 @@
     <body>
         <div class="container">
             <div class="row margin-top-50">
-                    <!-- <input id="size" type="text" placeholder="Data set size" name="dataset_size" id="dataset_size" required/> -->
-                    <textarea id="data" class="margin-right-50" placeholder="Enter comma seperated values" required></textarea>
+                <form onsubmit="submitData(event)">
+                    <select class="margin-right-50" onchange="dataType()" name="data-type" id="data-type" required>
+                        <option value="">Choose Type of data</option>
+                        <option value="inputData">Input data set</option>
+                        <option value="generateData">Generate data set</option>
+                    </select>
+                    <input id="size" type="text" placeholder="Data set size" id="dataset_size" hidden/>
+                    <textarea id="data" class="margin-right-50" placeholder="Enter comma seperated values" hidden></textarea>
                     <select class="margin-right-50" name="algorithm" id="algorithm" required>
                         <option value="">Choose Algorithm</option>
                         <option value="linear">linear</option>
@@ -17,11 +23,15 @@
                         <option value="selection">selection</option>
                         <option value="bubble">bubble</option>
                     </select>
-                    <button type="submit" class="btn-primary btn-submit" onclick="submitData()">Submit</button>
+                    <button type="submit" class="btn-primary btn-submit">Submit</button>
+                    <button type="button" class="btn-primary btn-reset" onclick="resetVisualiser()">Reset</button>
+                </form>
             </div>
             <div class="row margin-top-50" id="show-data">
-                <input id="number" type="text" placeholder="Enter number to find" required/>
-                <button class="margin-right-50 btn-primary" onclick="run()">Run</button>
+                <form onsubmit="run(event)">
+                    <input id="number" type="text" placeholder="Enter number to find" required/>
+                    <button type="submit" class="margin-right-50 btn-primary">Run</button>
+                </form>
             </div>
         </div>
         <script type="text/javascript" src="index.js"></script>
